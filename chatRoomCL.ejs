@@ -21,11 +21,25 @@
 </head>
 <body>
 <form method="post">
+  <input type="hidden" id="userName" value="<%= userName %>">
   <div class="row">
-    <h1></h1>
+    <h1>Node Chat チャットルーム</h1>
   </div>
   <div class="row">
-    ログインユーザ
+    ログインユーザ：<%= userName %>さん
+  </div>
+  <div class="row">
+    <textarea rows="4" id="inputMsg" class="form-control" placeholder="投稿文を入力してください"></textarea>
+  </div>
+  <div class="row">
+    <input type="button" value="投稿" id="js_write" class="btn btn-info">
+    <input type="button" value="メモ" id="js_memo" class="btn btn-info">
+  </div>
+  <div class="row">
+    <div id="chatList"></div>
+  </div>
+  <div class="row" style="margin-top: 20px;">
+    <input type="button" value="退室する" id="js_exit" class="btn btn-info">
   </div>
 </form>
 <div>

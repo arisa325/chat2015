@@ -24,7 +24,7 @@ function onRequest(req, res) {
 	  showPage(req, res);
 
 	} else {
-	
+
 		console.log('POST!!');
 	  var query = setQeuryString(req, res);
 
@@ -47,7 +47,7 @@ function setQeuryString(req, res) {
 function showPage(req, res) {
 	console.log('Path = ' + req.url);
 	module.exports.query = query;
-
+	console.log(req.url);
 	switch (req.url) {
 		// ログイン画面を開く
 		case '/':
@@ -59,7 +59,8 @@ function showPage(req, res) {
 		// チャットルームを開く
 		case '/room':
 			require('./chatSV.js');
-			data = fs.readFileSync('./chatRoomCL.ejs', 'UTF-8');
+			ejsData = fs.readFileSync('./chatRoomCL.ejs', 'UTF-8');
+			data = ejs.render(ejsData, {userName : query.userName});
 			res.writeHead(200, {'Content-Type': 'text/html; charset=UTF-8'});
 			res.end(data);
 			break;

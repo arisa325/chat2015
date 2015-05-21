@@ -13,14 +13,30 @@
   font-family: Meiryo;
 }
 </style>
+<script type="text/javascript">
+$(function(){
+    $("#js_enter").click(function () {
+        var userName = $("input[name=userName]").val();
+        if (userName == "") {
+            alert("ユーザ名を入力してください");
+            return;
+        }
+        $("form").submit();
+    });
+});
+</script>
 </head>
 <body>
-<form method="POST">
+<form method="POST" action="/room">
   <div class="row">
-    <h1></h1>
+    <h1>Node Chat ログイン画面</h1>
   </div>
   <div class="row">
-    <input type="button" value="入室する" class="btn btn-info">
+    ユーザ名<br />
+    <input type="text" size="20" name="userName" class="form-control" style="width:200px;">
+  </div>
+  <div class="row">
+    <input type="button" value="入室する" id="js_enter" class="btn btn-info">
   </div>
 </form>
 <div>
