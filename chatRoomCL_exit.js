@@ -13,5 +13,4 @@ $(function(){
     socket.on('exit', function(data) {
         $("#chatList").prepend(data + "さんが退室しました。<br />");
     });
-
 })
